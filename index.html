@@ -1,462 +1,141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>For You 💖</title>
-  <meta name="theme-color" content="#ff4d8d" />
+  <meta charset="UTF-8" />
+  <title>Kayli 💘 Valentine Request</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    :root{
-      --bg1:#0b1020;
-      --bg2:#1a0b24;
-      --pink:#ff4d8d;
-      --soft:#ffd1e1;
-      --text:#f7f7fb;
-      --muted:#b8b8c6;
-      --card:rgba(255,255,255,.08);
-      --stroke:rgba(255,255,255,.14);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--text);
-      min-height:100vh;
-      background:
-        radial-gradient(1200px 800px at 20% 10%, #2a1240 0%, transparent 60%),
-        radial-gradient(900px 700px at 80% 30%, #122a4a 0%, transparent 60%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-      overflow-x:hidden;
-    }
-    .wrap{
-      max-width:980px;
-      margin:0 auto;
-      padding:24px 18px 70px;
-    }
-    .hero{
-      display:flex;
-      gap:18px;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      margin-top:10px;
-    }
-    .title{
-      flex:1 1 520px;
-    }
-    h1{
-      margin:0;
-      font-size: clamp(34px, 5vw, 58px);
-      letter-spacing:-.02em;
-      line-height:1.02;
-    }
-    .sub{
-      margin:12px 0 0;
-      color:var(--muted);
-      font-size: clamp(14px, 2.2vw, 18px);
-      line-height:1.45;
-    }
-    .chiprow{
-      margin-top:14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .chip{
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.06);
-      padding:10px 12px;
-      border-radius:999px;
-      font-size:13px;
-      color:var(--soft);
-      backdrop-filter: blur(10px);
-    }
-    .card{
-      border:1px solid var(--stroke);
-      background:var(--card);
-      border-radius:20px;
-      padding:18px;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 20px 60px rgba(0,0,0,.35);
-    }
-    .right{
-      flex:1 1 300px;
-      min-width:280px;
-    }
-    .photo{
-      width:100%;
-      aspect-ratio: 4 / 5;
-      border-radius:18px;
-      border:1px dashed rgba(255,255,255,.25);
-      display:grid;
-      place-items:center;
-      color:rgba(255,255,255,.7);
-      overflow:hidden;
-      position:relative;
-      background:linear-gradient(135deg, rgba(255,77,141,.18), rgba(255,255,255,.03));
-    }
-    .photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:none;
-    }
-    .photo .hint{
-      padding:14px;
-      text-align:center;
-      font-size:14px;
-      line-height:1.3;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
     }
 
-    .ctaRow{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:16px;
-    }
-    button{
-      cursor:pointer;
-      border:0;
-      border-radius:14px;
-      padding:13px 14px;
-      font-weight:700;
-      font-size:14px;
-      transition: transform .08s ease, filter .2s ease;
-    }
-    button:active{ transform: scale(.98) }
-    .btnPrimary{
-      background:linear-gradient(135deg, var(--pink), #ff8fb3);
-      color:#170714;
-      box-shadow: 0 14px 40px rgba(255,77,141,.25);
-    }
-    .btnGhost{
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      border:1px solid var(--stroke);
-      backdrop-filter: blur(10px);
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 22px;
+      max-width: 420px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+      animation: fadeIn 1s ease;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
-      margin-top:16px;
-    }
-    .col6{ grid-column: span 6; }
-    .col12{ grid-column: span 12; }
-    @media (max-width:780px){
-      .col6{ grid-column: span 12; }
+    h1 {
+      margin-bottom: 12px;
     }
 
-    .sectionTitle{
-      margin:0 0 10px;
-      font-size:16px;
-      color:var(--soft);
-      letter-spacing:.01em;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .sectionTitle .dot{
-      width:9px;height:9px;border-radius:999px;background:var(--pink);
-      box-shadow:0 0 22px rgba(255,77,141,.7);
+    p {
+      font-size: 18px;
+      margin: 18px 0;
     }
 
-    .note{
-      border:1px solid var(--stroke);
-      background:rgba(0,0,0,.18);
-      border-radius:18px;
-      padding:16px;
-      position:relative;
-      overflow:hidden;
-      min-height:132px;
-    }
-    .note h3{
-      margin:0 0 8px;
-      font-size:16px;
-    }
-    .note p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.45;
-      font-size:14px;
-    }
-    .reveal{
-      margin-top:12px;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:13px;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
+    button {
+      border: none;
+      padding: 12px 18px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      margin: 8px;
+      transition: transform 0.2s;
     }
 
-    .hiddenText{
-      display:none;
-      margin-top:12px;
-      padding-top:10px;
-      border-top:1px solid rgba(255,255,255,.12);
-      color:var(--text);
-      font-size:14px;
-      line-height:1.45;
+    button:hover {
+      transform: scale(1.05);
     }
 
-    .footer{
-      margin-top:18px;
-      color:rgba(255,255,255,.55);
-      font-size:12px;
-      text-align:center;
+    .yes {
+      background: #ff4f81;
+      color: white;
     }
 
-    /* floating hearts */
-    .heart{
-      position:fixed;
-      bottom:-20px;
-      font-size:18px;
-      opacity:.85;
-      animation: floatUp linear forwards;
-      pointer-events:none;
-      filter: drop-shadow(0 10px 18px rgba(255,77,141,.22));
-    }
-    @keyframes floatUp{
-      0%{ transform: translateY(0) translateX(0) scale(.9); opacity:0 }
-      10%{opacity:.85}
-      100%{ transform: translateY(-110vh) translateX(var(--drift)) scale(1.25); opacity:0 }
+    .no {
+      background: #ddd;
+      color: #555;
+      position: absolute;
     }
 
-    /* confetti canvas */
-    canvas#confetti{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
+    .footer {
+      margin-top: 18px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 
 <body>
-<canvas id="confetti"></canvas>
 
-<div class="wrap">
-  <div class="hero">
-    <div class="title">
-      <h1>Hey <span id="herName">Babe</span> 💗</h1>
-      <p class="sub">
-        I made you a little link because I wanted you to know one thing:
-        <span style="color:var(--soft); font-weight:700;">you’re rare.</span>
-      </p>
+  <div class="card" id="card">
+    <h1>Hey Kayli 👀💘</h1>
+    <p id="text">Quick question…</p>
 
-      <div class="chiprow">
-        <div class="chip">✨ not everyone finds a love like this</div>
-        <div class="chip">🫶 made just for you</div>
-        <div class="chip">💌 tap the notes below</div>
-      </div>
+    <button class="yes" onclick="next()">Next 👉</button>
 
-      <div class="ctaRow">
-        <button class="btnPrimary" id="btnPlay">Tap for magic ✨</button>
-        <button class="btnGhost" id="btnHearts">Send hearts 💕</button>
-      </div>
-    </div>
-
-    <div class="right">
-      <div class="card">
-        <div class="photo" id="photoBox">
-          <img id="photoImg" alt="Us" />
-          <div class="hint" id="photoHint">
-            Add a photo of you two 💞<br>
-            (optional) — instructions below
-          </div>
-        </div>
-        <div style="margin-top:12px; color:var(--muted); font-size:13px; line-height:1.4;">
-          <strong style="color:var(--soft);">Message:</strong><br>
-          <span id="headline">“Puede que no vuelvas a encontrar algo así.”</span>
-        </div>
-      </div>
+    <div class="footer">
+      Please answer honestly (I’m scared)
     </div>
   </div>
 
-  <div class="grid">
-    <div class="col6">
-      <div class="note">
-        <div class="sectionTitle"><span class="dot"></span>One thing I love about you</div>
-        <h3 id="note1Title">Your vibe</h3>
-        <p id="note1Preview">Tap to reveal a message.</p>
-        <button class="reveal" data-target="t1">Reveal 💌</button>
-        <div class="hiddenText" id="t1">You make everything feel lighter. Even on rough days, you feel like home.</div>
-      </div>
-    </div>
+  <script>
+    const messages = [
+      "I was going to make this really romantic…",
+      "But I decided funny is more my brand 😌",
+      "So here we are.",
+      "Kayli…",
+      "You make every day better.",
+      "Even when you say you're 'ready in 5 minutes.'",
+      "Especially then, actually.",
+      "So I have one very important question…",
+      "Will you be my Valentine? 💖"
+    ];
 
-    <div class="col6">
-      <div class="note">
-        <div class="sectionTitle"><span class="dot"></span>Something I want you to remember</div>
-        <h3 id="note2Title">You’re not replaceable</h3>
-        <p id="note2Preview">Tap to reveal a message.</p>
-        <button class="reveal" data-target="t2">Reveal 💞</button>
-        <div class="hiddenText" id="t2">Not everyone finds someone like you. And I’m grateful I did.</div>
-      </div>
-    </div>
+    let index = 0;
 
-    <div class="col12">
-      <div class="note" style="min-height:160px;">
-        <div class="sectionTitle"><span class="dot"></span>My promise</div>
-        <h3 id="note3Title">I’m here</h3>
-        <p id="note3Preview">Tap to reveal a message.</p>
-        <button class="reveal" data-target="t3">Reveal 💖</button>
-        <div class="hiddenText" id="t3">
-          I’ll keep choosing you, communicating, and showing up — not just saying it.
-          And if you ever forget how special you are, open this link again.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer">
-    Made with love by <span id="yourName">Ahmed</span> • <span id="today"></span>
-  </div>
-
-  <div class="card" style="margin-top:14px;">
-    <div class="sectionTitle"><span class="dot"></span>Quick edit section (change this in the file)</div>
-    <p style="margin:0;color:var(--muted);line-height:1.5;font-size:14px;">
-      1) Replace <b>herName</b>, <b>yourName</b>, and the three hidden messages.<br>
-      2) Optional: add a photo named <b>photo.jpg</b> in the same folder to show your picture.
-    </p>
-  </div>
-</div>
-
-<script>
-  // --- customize here quickly ---
-  const SETTINGS = {
-    herName: "My Love",
-    yourName: "Ahmed",
-    headline: "“Puede que no vuelvas a encontrar algo así.”",
-    // Optional: if you add a file named photo.jpg next to index.html
-    photoFile: "photo.jpg"
-  };
-
-  // apply settings
-  document.getElementById("herName").textContent = SETTINGS.herName;
-  document.getElementById("yourName").textContent = SETTINGS.yourName;
-  document.getElementById("headline").textContent = SETTINGS.headline;
-
-  // date
-  const d = new Date();
-  document.getElementById("today").textContent =
-    d.toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric" });
-
-  // photo
-  const img = document.getElementById("photoImg");
-  const hint = document.getElementById("photoHint");
-  fetch(SETTINGS.photoFile, { method:"HEAD" }).then(r=>{
-    if(r.ok){
-      img.src = SETTINGS.photoFile;
-      img.style.display = "block";
-      hint.style.display = "none";
-    }
-  }).catch(()=>{});
-
-  // reveal buttons
-  document.querySelectorAll(".reveal").forEach(btn=>{
-    btn.addEventListener("click", ()=>{
-      const id = btn.getAttribute("data-target");
-      const el = document.getElementById(id);
-      const showing = el.style.display === "block";
-      el.style.display = showing ? "none" : "block";
-      btn.textContent = showing ? "Reveal 💌" : "Hide 🙈";
-    });
-  });
-
-  // floating hearts
-  function spawnHeart(){
-    const hearts = ["💗","💖","💘","💕","💞","💓","❤️"];
-    const h = document.createElement("div");
-    h.className = "heart";
-    h.textContent = hearts[Math.floor(Math.random()*hearts.length)];
-    const left = Math.random()*100;
-    const dur = 3 + Math.random()*3.5;
-    const drift = (Math.random()*120 - 60).toFixed(0) + "px";
-    h.style.left = left + "vw";
-    h.style.animationDuration = dur + "s";
-    h.style.setProperty("--drift", drift);
-    h.style.fontSize = (16 + Math.random()*18).toFixed(0) + "px";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(), dur*1000);
-  }
-
-  let heartInterval = null;
-  document.getElementById("btnHearts").addEventListener("click", ()=>{
-    if(heartInterval){
-      clearInterval(heartInterval);
-      heartInterval = null;
-      return;
-    }
-    spawnHeart();
-    heartInterval = setInterval(spawnHeart, 250);
-    setTimeout(()=>{
-      if(heartInterval){
-        clearInterval(heartInterval);
-        heartInterval = null;
+    function next() {
+      index++;
+      if (index < messages.length) {
+        document.getElementById("text").innerHTML = messages[index];
+      } else {
+        showValentine();
       }
-    }, 4500);
-  });
-
-  // confetti
-  const canvas = document.getElementById("confetti");
-  const ctx = canvas.getContext("2d");
-  let W, H, confetti = [];
-  function resize(){
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-  window.addEventListener("resize", resize);
-  resize();
-
-  function burstConfetti(){
-    confetti = [];
-    const count = 160;
-    for(let i=0;i<count;i++){
-      confetti.push({
-        x: W/2, y: H*0.22,
-        vx:(Math.random()*10-5),
-        vy:(Math.random()*-10-2),
-        g: 0.18 + Math.random()*0.1,
-        r: 2 + Math.random()*4,
-        a: 1,
-        spin: (Math.random()*0.2-0.1),
-        rot: Math.random()*Math.PI*2,
-        // random pink/purple/white-ish palette
-        c: ["#ff4d8d","#ff8fb3","#ffd1e1","#b084ff","#7dd3ff","#ffffff"][Math.floor(Math.random()*6)]
-      });
     }
-  }
 
-  function tick(){
-    ctx.clearRect(0,0,W,H);
-    for(const p of confetti){
-      p.x += p.vx;
-      p.y += p.vy;
-      p.vy += p.g;
-      p.rot += p.spin;
-      p.a *= 0.992;
-      ctx.globalAlpha = Math.max(0,p.a);
-      ctx.save();
-      ctx.translate(p.x,p.y);
-      ctx.rotate(p.rot);
-      ctx.fillStyle = p.c;
-      ctx.fillRect(-p.r, -p.r, p.r*2.2, p.r*1.2);
-      ctx.restore();
+    function showValentine() {
+      document.getElementById("card").innerHTML = `
+        <h1>Kayli 💘</h1>
+        <p>Will you be my Valentine?</p>
+        <button class="yes" onclick="yes()">YES 💖</button>
+        <button class="no" id="noBtn" onmouseover="moveNo()">No 🙄</button>
+      `;
     }
-    ctx.globalAlpha = 1;
-    requestAnimationFrame(tick);
-  }
-  tick();
 
-  document.getElementById("btnPlay").addEventListener("click", ()=>{
-    burstConfetti();
-    // also send a quick heart burst
-    for(let i=0;i<18;i++) setTimeout(spawnHeart, i*90);
-  });
-</script>
+    function moveNo() {
+      const btn = document.getElementById("noBtn");
+      const x = Math.random() * 250 - 125;
+      const y = Math.random() * 250 - 125;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function yes() {
+      document.getElementById("card").innerHTML = `
+        <h1>💘 LET’S GO 💘</h1>
+        <p>I knew it 😎<br>
+        Best Valentine ever.</p>
+        <p>See you on Valentine’s Day ❤️</p>
+      `;
+    }
+  </script>
+
 </body>
 </html>
